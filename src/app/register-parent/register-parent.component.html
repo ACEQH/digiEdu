@@ -1,0 +1,125 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+<header class="card-header">
+	
+	<h4 class="card-title mt-2">Register a Parent</h4>
+</header>
+<article class="card-body">
+<form (ngSubmit)="onSubmit()">
+	<div class="form-row">
+		<div class="col form-group">
+			<label for="FirstName">First name </label> 
+		  	<input id="FirstName" type="text" class="form-control" placeholder="" required [(ngModel)]= "parent.FirstName" name="FirstName">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label for="LastName" >Last name</label>
+			 
+		  	<input id="LastName" type="text" class="form-control" placeholder=" " required [(ngModel)] = "parent.LastName" name="LastName">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label for="ID">ID</label>
+		<input id="ID" type="number" class="form-control" placeholder="ID" required [(ngModel)] = "parent.ID" name="ID">
+    </div> <!-- form-group end.// -->
+    <div class="form-group">
+            <label for="Email">Email</label>
+            <input #userE type="email" class="form-control" placeholder="Email" required [(ngModel)] = "parent.Email" name="Email">
+        </div> <!-- form-group end.// -->
+	<div class="form-group">
+			<label class="form-check form-check-inline" for="status">
+		  <input id="Gender1" class="form-check-input" type="radio" name="status" value="Employee" [(ngModel)]="parent.status" name="Gender">
+		  <span class="form-check-label"> Employee </span>
+		</label>
+		<label class="form-check form-check-inline">
+		  <input id="Gender2" class="form-check-input" type="radio" name="status" value="Retired" [(ngModel)]="parent.status" name="Gender">
+		  <span class="form-check-label"> Retired </span>
+		</label>
+	</div> <!-- form-group end.// -->
+	<div class="form-row">
+		<div class="form-group col-md-6">
+		  <label for="PhoneNumber">Phone Number</label>
+		  <input id="PhoneNumber" type="text" class="form-control" [(ngModel)]="parent.PhoneNumber" name="PhoneNumber">
+		</div> <!-- form-group end.// -->
+		<div class="form-group col-md-6">
+		  <label for="Level">Email</label>
+		  <input id="Email" class="form-control" type="email" required [(ngModel)]="parent.Email" name="Email">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row.// -->
+	<div class="form-group">
+		<label for="Password">Create password</label>
+	    <input id="Password" class="form-control" type="password" required [(ngModel)]="parent.Password" name="Password">
+    </div> <!-- form-group end.// --> 
+    <div class="form-group">
+        <!-- Table  -->
+        <table class="table table-bordered">
+        <!-- Table head -->
+        <thead>
+          <tr>
+            <th>
+              <!-- Material unchecked -->
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="tableMaterialCheck1">
+                <label class="form-check-label" for="tableMaterialCheck1">Choose student</label>
+              </div>
+            </th>
+                            <th >#ID</th>
+                            <th >FirstName</th>
+                            <th >LastName</th>
+                            <th >Gender</th>
+                            <th >Level</th>
+                            <th >Select</th>
+          </tr>
+        </thead>
+        <!-- Table head -->
+      
+        <!-- Table body -->
+        <tbody>
+            <tr  *ngFor=" let student of students" >
+                <th scope="row">
+                <!-- Material unchecked -->
+                <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="tableMaterialCheck2" (checked)="onselect(student)" >
+                <label class="form-check-label" for="tableMaterialCheck2"></label>
+                </div>
+                </th>
+            
+                    <td >{{student.ID}}</td>
+                    <td >{{student.FirstName}}</td>
+                    <td>{{student.LastName}}</td>
+                    <td>{{student.Gender}}</td>
+                    <td>{{student.Level}}</td>
+            </tr>
+          
+        </tbody>
+        <!-- Table body -->
+      </table> 
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click) = "newParent()">  <a  href="#" [routerLink] = "'link-p'" (click) = "studentDetails()"></a> Next</button>
+    </div> <!-- form-group// -->      
+    <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
+</form>
+</article> <!-- card-body end .// -->
+<div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+</div> <!-- card.// -->
+</div> <!-- col.//-->
+
+</div> <!-- row.//-->
+
+
+</div> 
+<!--container end.//-->
+
+<br><br>
+
+

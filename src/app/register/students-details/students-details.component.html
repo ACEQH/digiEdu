@@ -1,0 +1,45 @@
+<div #table class="table-editable">
+    <h1>Students Details</h1>
+<table class="table table-hover" >
+        <thead class="thead-dark">
+          <tr>
+              
+            <th scope="col">#ID</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Level</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">Password</th>
+            <th scope="col"> Edit</th>
+            <th scope="col"> Delete</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr  *ngFor=" let student of students">
+               
+                <td scope="row" >{{student.ID}}</td>
+                <td>{{student.FirstName}}</td>
+                <td>{{student.LastName}}</td>
+                <td>{{student.Gender}}</td>
+                <td contenteditable="true">{{student.Level}}</td>
+                <td contenteditable="true">{{student.PhoneNumber}}</td>
+                <td contenteditable="true">{{student.Password}}</td>
+                <td>
+                        <div class="form">
+                                <span class="button is-small btn-primary"  (click)="UpdateData(students.PhoneNumber,students.Level,students.Password)">Edit</span> 
+                                <label class="form" for="tableMaterialCheck2"></label>
+                                </div>
+                            </td>
+
+                            <td>
+                                    <div class="form">
+                                            <span class="button is-small btn-danger" (click)="DeleteStudent()">Delete</span>
+                                            <label class="form" for="tableMaterialCheck2"></label>
+                                            </div>
+                                        </td>
+          </tr>
+        </tbody>
+      </table>
+ 
+    </div>

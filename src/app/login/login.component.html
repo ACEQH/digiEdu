@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Digital Education<br> Login Page</h2>
+            <p>Login or contact with your school to register you in system</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                     <label for="Email">User Email</label>
+                     <input id="Email" [(ngModel)]="data.Email" type="email" class="form-control" placeholder="User Email"  required name="Email">
+                  </div>
+                  <div class="form-group">
+                     <label for="Password">Password</label>
+                     <input id="Password" [(ngModel)]="data.Password" type="password" class="form-control" placeholder="Password" required name="Password">
+                  </div>
+                  <div class="form-group">
+                     <label for="type" >User Type</label>
+                     <select id="type" [(ngModel)]="data.type" class="form-control" required  name="type" required>
+                       <option> Choose...</option>
+                         <option>Student</option>
+                         <option>Parent</option>
+                         <option>Teacher</option>
+                         <option>Admin</option>
+                     </select>
+                   </div> <!-- form-group end.// -->
+                   <div class="form-group">
+                     <button type="submit" class="btn btn-black" (click)= "Login()" >Login</button>
+                   </div>
+               </form>
+            </div>
+         </div>
+      </div>
