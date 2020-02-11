@@ -6,7 +6,7 @@ import {RegisterTeacherComponent} from './register-teacher/register-teacher.comp
 import {RegisterParentComponent} from './register-parent/register-parent.component';
 import {RegisterMangementComponent} from './register-mangement/register-mangement.component';
 import {StudentsDetailsComponent} from './register/students-details/students-details.component';
-import {AboutUsComponent} from '../app/admin-home/about-us/about-us.component';
+import {AboutUsComponent} from './admin-home/about-us/about-us.component';
 
 import {AuthGuard} from './shared/guard/auth.guard';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
@@ -38,7 +38,9 @@ const routes: Routes = [
   {path: 'THome', component: THomeComponent},
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'about-us', component: AboutUsComponent }
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'admin-home/about-us', redirectTo: 'about-us'},
+
 
 ];
 
