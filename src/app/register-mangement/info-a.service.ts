@@ -27,7 +27,7 @@ export class InfoAService {
       }
     })
   }
-  createStudent(admin: Admin): void {
+  createAdmin(admin: Admin): void {
     this.AdminsRef.push(admin).catch((error)=>{
       window.alert(error.message);
     });
@@ -38,15 +38,15 @@ export class InfoAService {
     window.alert("Register success");
   }
  
-  updateStudent(ID: string, value: any): Promise<void> {
+  updateAdmin(ID: string, value: any): Promise<void> {
     return this.AdminsRef.update(ID,value);
   }
  
-  deleteStudent(ID: string): Promise<void> {
+  deleteAdmin(ID: string): Promise<void> {
     return this.AdminsRef.remove(ID);
   }
  
-  getStudentList(): AngularFireList<Admin> {
+  getAdminList(): AngularFireList<Admin> {
     return this.AdminsRef;
   }
  

@@ -50,13 +50,6 @@ export class InfoPService {
     }));
     window.alert("Register success");
   // this.ID=this.PSref.push(ps).key
-   
-    
-    
-     
-   
-    
-    
   }
 
   

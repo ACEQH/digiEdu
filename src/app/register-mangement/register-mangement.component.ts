@@ -16,7 +16,7 @@ export class RegisterMangementComponent implements OnInit {
 
   newAdmin(){
     this.submit=false;
-    this.infoA.createStudent(this.admin);
+    this.infoA.createAdmin(this.admin);
     this.admin = new Admin();
     
   }

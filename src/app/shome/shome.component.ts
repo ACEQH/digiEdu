@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from "@angular/router";
+import { InfoService} from '../register/info.service';
 @Component({
   selector: 'app-shome',
   templateUrl: './shome.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  infoS: InfoService , private rt:Router) { }
 
   ngOnInit() {
   }
+  logoutS(){
+    this.infoS.SignOutS;
+    this.rt.navigate(['/login']);
 
+  }
 }

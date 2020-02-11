@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from "@angular/router";
+import { InfoPService } from '../register-parent/info-p.service';
 @Component({
   selector: 'app-phome',
   templateUrl: './phome.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private infoP : InfoPService , private rt:Router) { }
 
   ngOnInit() {
   }
 
+  logoutP(){
+    this.infoP.SignOutP;
+    this.rt.navigate(['/login']);
+
+  }
 }
