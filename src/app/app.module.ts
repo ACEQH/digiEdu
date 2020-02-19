@@ -44,6 +44,7 @@ import { GradingComponent } from './thome/grading/grading.component';
 import { AssignHomeworkComponent } from './thome/assign-homework/assign-homework.component';
 import { ContactInfoComponent } from './thome/contact-info/contact-info.component';
 import { CommunicationTComponent } from './thome/communication-t/communication-t.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CommunicationTComponent } from './thome/communication-t/communication-t
     AssignHomeworkComponent,
     ContactInfoComponent,
     CommunicationTComponent,
-    ComplaintComponent
+    ComplaintComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
