@@ -44,6 +44,7 @@ import { GradingComponent } from './thome/grading/grading.component';
 import { AssignHomeworkComponent } from './thome/assign-homework/assign-homework.component';
 import { ContactInfoComponent } from './thome/contact-info/contact-info.component';
 import { CommunicationTComponent } from './thome/communication-t/communication-t.component';
+import { ViewBComponent } from './shome/view-b/view-b.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { CommunicationTComponent } from './thome/communication-t/communication-t
     RegisterMangementComponent,
     StudentsDetailsComponent,
     StudentListComponent,
-    
+
     AdminHomeComponent,
     PHomeComponent,
     SHomeComponent,
@@ -77,7 +78,8 @@ import { CommunicationTComponent } from './thome/communication-t/communication-t
     AssignHomeworkComponent,
     ContactInfoComponent,
     CommunicationTComponent,
-    ComplaintComponent
+    ComplaintComponent,
+    ViewBComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,7 @@ import { CommunicationTComponent } from './thome/communication-t/communication-t
     AngularFireDatabaseModule,
     FormsModule,
     AngularFireAuthModule,
-    AngularFirestoreModule 
+    AngularFirestoreModule
 
   ],
   providers: [AngularFirestore ,InfoService , { provide: FirestoreSettingsToken, useValue: {} } , InfoServicet , InfoPService , InfoAService],

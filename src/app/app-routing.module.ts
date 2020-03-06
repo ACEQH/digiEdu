@@ -16,6 +16,7 @@ import {SHomeComponent} from './shome/shome.component';
 import {THomeComponent} from './thome/thome.component';
 import {LoginComponent} from './login/login.component';
 import {ContactUsComponent} from './admin-home/contact-us/contact-us.component';
+import {ViewBComponent} from './shome/view-b/view-b.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'admin-home/about-us', redirectTo: 'about-us'},
-
+  {path: 'view-b', component: ViewBComponent},
+  {path: 'Shome/view-b', redirectTo: 'view-b'},
 
 ];
 
