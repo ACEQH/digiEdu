@@ -7,7 +7,7 @@ import {RegisterParentComponent} from './register-parent/register-parent.compone
 import {RegisterMangementComponent} from './register-mangement/register-mangement.component';
 import {StudentsDetailsComponent} from './register/students-details/students-details.component';
 import {AboutUsComponent} from './admin-home/about-us/about-us.component';
-
+import {ComplaintComponent} from './phome/complaint/complaint.component';
 import {AuthGuard} from './shared/guard/auth.guard';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard.ts.guard';
@@ -31,10 +31,11 @@ const routes: Routes = [
   {path: 'list', component: StudentsDetailsComponent},
   {path: 'admin-home/list', redirectTo: 'list'},
 
+
   {path: 'admin-home', component: AdminHomeComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'admin-home/contact-us', redirectTo: 'contact-us'},
-  {path: 'PHome', component: PHomeComponent},
+  {path: 'phome', component: PHomeComponent},
   {path: 'SHome', component: SHomeComponent},
   {path: 'THome', component: THomeComponent},
   {path: 'login', component: LoginComponent},
@@ -43,6 +44,9 @@ const routes: Routes = [
   {path: 'admin-home/about-us', redirectTo: 'about-us'},
   {path: 'view-b', component: ViewBComponent},
   {path: 'Shome/view-b', redirectTo: 'view-b'},
+  {path: 'complaint', component: ComplaintComponent},
+  {path: 'phome/complaint', redirectTo: 'complaint'},
+
 
 ];
 
