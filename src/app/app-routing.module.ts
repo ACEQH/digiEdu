@@ -54,6 +54,8 @@ const routes: Routes = [
   {path: 'view-b', component: ViewBComponent},
   {path: 'Shome/view-b', redirectTo: 'view-b'},
   {path: 'homework', component: HomeworkComponent},
+  {path: 'evaluation-s', component: EvaluationSComponent},
+  {path: 'SHome/evaluation-s', redirectTo: 'evaluation-s'},
   {path: 'grade', component: GradeComponent},
   {path: 'SHome/grade', redirectTo: 'grade'},
   {path: 'SHome/homework', redirectTo: 'homework'},
