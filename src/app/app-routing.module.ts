@@ -17,6 +17,7 @@ import {THomeComponent} from './thome/thome.component';
 import {LoginComponent} from './login/login.component';
 import {ContactUsComponent} from './admin-home/contact-us/contact-us.component';
 import {ViewBComponent} from './shome/view-b/view-b.component';
+import {CommunicationListComponent} from './admin-home/communication-list/communication-list.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path: 'admin-home', component: AdminHomeComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'admin-home/contact-us', redirectTo: 'contact-us'},
-  {path: 'phome', component: PHomeComponent},
+  {path: 'PHome', component: PHomeComponent},
   {path: 'SHome', component: SHomeComponent},
   {path: 'THome', component: THomeComponent},
   {path: 'login', component: LoginComponent},
@@ -46,6 +47,9 @@ const routes: Routes = [
   {path: 'Shome/view-b', redirectTo: 'view-b'},
   {path: 'complaint', component: ComplaintComponent},
   {path: 'phome/complaint', redirectTo: 'complaint'},
+  {path: 'communication', component: CommunicationListComponent},
+  {path: 'communication', redirectTo: 'communication'},
+
 
 
 ];
