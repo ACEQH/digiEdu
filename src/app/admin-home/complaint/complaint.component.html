@@ -14,7 +14,7 @@
 <body class="back">
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <a class="navbar-brand" href="#" [routerLink]="'/app/admin-home'">Digital Education</a>
+  <a class="navbar-brand" href="#" [routerLink]="'/admin-home'">Smart Education</a>
   <ul class="navbar-nav">
     <li class="nav-item dropdown">
       <div class="dropdown">
@@ -53,9 +53,9 @@
       </div>
     </div>
 
-    <li *ngIf="infoA.isLoggedInA" class="nav-item">
+    <li class="nav-item">
 
-      <button type="button" class="btn btn-primary" (click)="logoutA()">
+      <button type="button" class="btn btn-primary" >
         Logout
       </button>
 
