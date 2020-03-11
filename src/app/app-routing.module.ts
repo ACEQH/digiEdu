@@ -31,7 +31,7 @@ import {OpenGradingComponent} from './admin-home/open-grading/open-grading.compo
 const routes: Routes = [
   {path: 'app/register', component: RegisterComponent},
   {path: 'register', redirectTo: 'register'},
-  {path: 'app/home', component: AppComponent},
+  {path: 'home', component: AppComponent},
   {path: 'app/register-teacher', component: RegisterTeacherComponent},
   {path: 'admin-home/register-teacher', redirectTo: 'register-teacher'},
   {path: 'app/register-parent', component: RegisterParentComponent},
@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: 'admin-home/list', redirectTo: 'list'},
 
 
-  {path: 'app/admin-home', component: AdminHomeComponent},
+  {path: 'admin-home', component: AdminHomeComponent},
   {path: 'app/contact-us', component: ContactUsComponent},
   {path: 'admin-home/contact-us', redirectTo: 'contact-us'},
   {path: 'PHome', component: PHomeComponent},
