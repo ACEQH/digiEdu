@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'view-b', component: ViewBComponent},
   {path: 'Shome/view-b', redirectTo: 'view-b'},
   {path: 'complaint', component: ComplaintComponent},
-  {path: 'phome/complaint', redirectTo: 'complaint'},
+  {path: 'PHome/complaint', redirectTo: 'complaint'},
   {path: 'communication', component: CommunicationListComponent},
   {path: 'communication', redirectTo: 'communication'},
 
