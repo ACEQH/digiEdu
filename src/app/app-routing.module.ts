@@ -27,6 +27,7 @@ import {ComplaintAComponent} from './admin-home/complaint/complaint.component';
 import {LinkParentComponent} from './admin-home/link-parent/link-parent.component';
 import {OpenGradingComponent} from './admin-home/open-grading/open-grading.component';
 
+
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'admin-home/register', redirectTo: 'register'},
