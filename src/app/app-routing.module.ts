@@ -18,7 +18,10 @@ import {LoginComponent} from './login/login.component';
 import {ContactUsComponent} from './admin-home/contact-us/contact-us.component';
 import {ViewBComponent} from './shome/view-b/view-b.component';
 import {CommunicationListComponent} from './admin-home/communication-list/communication-list.component';
-
+import { HomeworkComponent } from './shome/homework/homework.component';
+import { GradeComponent } from './shome/grade/grade.component';
+import { CommunicationSComponent } from './shome/communication-s/communication-s.component';
+import { EvaluationSComponent } from './shome/evaluation-s/evaluation-s.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'admin-home/register', redirectTo: 'register'},
@@ -45,6 +48,12 @@ const routes: Routes = [
   {path: 'admin-home/about-us', redirectTo: 'about-us'},
   {path: 'view-b', component: ViewBComponent},
   {path: 'Shome/view-b', redirectTo: 'view-b'},
+  {path: 'homework', component: HomeworkComponent},
+  {path: 'grade', component: GradeComponent},
+  {path: 'SHome/grade', redirectTo: 'grade'},
+  {path: 'SHome/homework', redirectTo: 'homework'},
+  {path: 'communication-s', component: CommunicationSComponent},
+  {path: 'SHome/communication-s', redirectTo: 'communication-s'},
   {path: 'complaint', component: ComplaintComponent},
   {path: 'PHome/complaint', redirectTo: 'complaint'},
   {path: 'communication', component: CommunicationListComponent},
