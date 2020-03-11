@@ -18,6 +18,10 @@ import {LoginComponent} from './login/login.component';
 import {ContactUsComponent} from './admin-home/contact-us/contact-us.component';
 import {ViewBComponent} from './shome/view-b/view-b.component';
 import {CommunicationListComponent} from './admin-home/communication-list/communication-list.component';
+import {EvaluationListComponent} from './admin-home/evaluation-list/evaluation-list.component';
+import {ComplaintAComponent} from './admin-home/complaint/complaint.component';
+import {LinkParentComponent} from './admin-home/link-parent/link-parent.component';
+import {OpenGradingComponent} from './admin-home/open-grading/open-grading.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -47,8 +51,17 @@ const routes: Routes = [
   {path: 'Shome/view-b', redirectTo: 'view-b'},
   {path: 'complaint', component: ComplaintComponent},
   {path: 'PHome/complaint', redirectTo: 'complaint'},
-  {path: 'communication', component: CommunicationListComponent},
-  {path: 'communication', redirectTo: 'communication'},
+  {path: 'app/communication-list', component: CommunicationListComponent},
+  {path: 'app/communication-list', redirectTo: 'communication-list'},
+  {path: 'app/evaluation-list', component: EvaluationListComponent},
+  {path: 'evaluation-list', redirectTo: 'evaluation-list'},
+  {path: 'app/complaint', component: ComplaintAComponent},
+  {path: 'complaint', redirectTo: 'complaint'},
+  {path: 'link-parent', component: LinkParentComponent},
+  {path: 'app/link-parent', redirectTo: 'link-parent'},
+  {path: 'open-grading', component: OpenGradingComponent},
+  {path: 'app/open-grading', redirectTo: 'open-grading'},
+
 
 
 
