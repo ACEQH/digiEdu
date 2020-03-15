@@ -26,7 +26,13 @@ import {EvaluationListComponent} from './admin-home/evaluation-list/evaluation-l
 import {ComplaintAComponent} from './admin-home/complaint/complaint.component';
 import {LinkParentComponent} from './admin-home/link-parent/link-parent.component';
 import {OpenGradingComponent} from './admin-home/open-grading/open-grading.component';
-
+import { AssignHomeworkComponent } from './thome/assign-homework/assign-homework.component';
+import {GradingComponent} from './thome/grading/grading.component';
+import {ContactInfoComponent} from './thome/contact-info/contact-info.component';
+import {CommunicationTComponent} from './thome/communication-t/communication-t.component';
+import {StudentGradeComponent} from './phome/student-grade/student-grade.component';
+import {EvaluationPComponent} from './phome/evaluation-p/evaluation-p.component';
+import {CommunicationPComponent} from './phome/communication-p/communication-p.component';
 
 const routes: Routes = [
   {path: 'app/register', component: RegisterComponent},
@@ -68,12 +74,27 @@ const routes: Routes = [
   {path: 'app/communication-list', redirectTo: 'communication-list'},
   {path: 'app/evaluation-list', component: EvaluationListComponent},
   {path: 'evaluation-list', redirectTo: 'evaluation-list'},
-  {path: 'app/complaint', component: ComplaintAComponent},
-  {path: 'complaint', redirectTo: 'complaint'},
+  {path: 'Complaint', component: ComplaintAComponent},
+  {path: 'app/complaint', redirectTo: 'Complaint'},
   {path: 'link-parent', component: LinkParentComponent},
   {path: 'app/link-parent', redirectTo: 'link-parent'},
   {path: 'open-grading', component: OpenGradingComponent},
   {path: 'app/open-grading', redirectTo: 'open-grading'},
+  {path: 'assign-homework', component: AssignHomeworkComponent},
+  {path: 'THome/assign-homework', redirectTo: 'assign-homework'},
+  {path: 'grading', component: GradingComponent},
+  {path: 'THome/grading', redirectTo: 'grading'},
+  {path: 'contact-info', component: ContactInfoComponent},
+  {path: 'THome/contact-info', redirectTo: 'contact-info'},
+  {path: 'communication-t', component: CommunicationTComponent},
+  {path: 'THome/communication-t', redirectTo: 'communication-t'},
+  {path: 'student-grade', component: StudentGradeComponent},
+  {path: 'PHome/student-grade', redirectTo: 'student-grade'},
+  {path: 'evaluation-p', component: EvaluationPComponent},
+  {path: 'PHome/evaluation-p', redirectTo: 'evaluation-p'},
+  {path: 'communication-p', component: CommunicationPComponent},
+  {path: 'PHome/communication-p', redirectTo: 'communication-p'},
+
 
 
 
