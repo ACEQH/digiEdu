@@ -15,7 +15,7 @@ export class InfoServicet {
   TeachersRef : AngularFireList<Teacher> = null;
   constructor(private db: AngularFireDatabase , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) {
     this.TeachersRef = db.list(this.dbPath);
-        this.afAuth.authState.subscribe(teacher =>{
+        /*this.afAuth.authState.subscribe(teacher =>{
             if(teacher){
               this.TeacherData=teacher;
               localStorage.setItem('teacher',JSON.stringify(this.TeacherData));
@@ -24,7 +24,7 @@ export class InfoServicet {
               localStorage.setItem('teacher',null);
               JSON.parse(localStorage.getItem('teacher'));
             }
-          })
+          })*/
    }
   
  
@@ -54,16 +54,7 @@ export class InfoServicet {
   deleteAll() {
     this.TeachersRef.remove();
 }
-SigninT(email , password){
-  this.afAuth.auth.signInWithEmailAndPassword(email, password)
- .then((result) => {
-   this.ngZone.run(() => {
-     this.router.navigate(['/THome']);
-   });
- }).catch((error) => {
-   window.alert(error.message)
- })
-}
+
 
 ForgotPasswordT(passwordResetEmail) {
   return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)

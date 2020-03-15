@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoPService } from '../register-parent/info-p.service';
-import { InfoAService } from '../register-mangement/info-a.service';
-import { InfoServicet} from '../register-teacher/info.service';
-import { InfoService} from '../register/info.service';
+import { LoginHomeService } from 'src/app/shared/login-home.service'
 import { Data } from '../shared/data';
 @Component({
   selector: 'app-login',
@@ -13,7 +10,7 @@ export class LoginComponent implements OnInit {
   data:Data = new Data();
   submit= false;
 
-  constructor(private  infoS: InfoService,private infoP : InfoPService,private infoT : InfoServicet,private infoA : InfoAService) 
+  constructor(private loginfo:LoginHomeService) 
   { }
 
   ngOnInit() {
@@ -22,13 +19,13 @@ export class LoginComponent implements OnInit {
   Login(){
     this.submit= false;
     if(this.data.type == 'Student'){
-      this.infoS.SigninS(this.data.Email,this.data.Password);
+      this.loginfo.SigninS(this.data.Email,this.data.Password);
     }else if(this.data.type == 'Parent'){
-      this.infoP.SigninP(this.data.Email,this.data.Password);
+      this.loginfo.SigninP(this.data.Email,this.data.Password);
     }else if(this.data.type== 'Teacher'){
-      this.infoT.SigninT(this.data.Email,this.data.Password);
+      this.loginfo.SigninT(this.data.Email,this.data.Password);
     }else if(this.data.type == 'Admin'){
-      this.infoA.SigninA(this.data.Email,this.data.Password);
+      this.loginfo.SigninA(this.data.Email,this.data.Password);
     }else{
       window.alert('please select user type ');
     }

@@ -22,7 +22,7 @@ export class InfoPService {
   
   constructor(private db: AngularFireDatabase , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) { 
     this.ParentsRef = db.list(this.dbPath);
-      this.afAuth.authState.subscribe(parent =>{
+     /* this.afAuth.authState.subscribe(parent =>{
             if(parent){
               this.parentData=parent;
               localStorage.setItem('parent',JSON.stringify(this.parentData));
@@ -31,7 +31,7 @@ export class InfoPService {
               localStorage.setItem('parent',null);
               JSON.parse(localStorage.getItem('parent'));
             }
-          })
+          })*/
    // this.PSref = db.list(this.dbPath+this.UID+this.dbPath1);
     
     //this.UID = db.database.ref(this.dbPath).key;
@@ -69,16 +69,7 @@ export class InfoPService {
    return this.ParentsRef.remove();
   }
   
-  SigninP(email , password){
-    this.afAuth.auth.signInWithEmailAndPassword(email, password)
-   .then((result) => {
-     this.ngZone.run(() => {
-       this.router.navigate(['/PHome']);
-     });
-   }).catch((error) => {
-     window.alert(error.message)
-   })
- }
+
 
  ForgotPasswordP(passwordResetEmail) {
   return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)

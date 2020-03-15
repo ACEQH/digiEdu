@@ -18,14 +18,14 @@ export class InfoAService {
   user:User;
   constructor(private db: AngularFireDatabase , public  afAuth: AngularFireAuth,public router: Router ,public ngZone: NgZone) { 
     this.AdminsRef = db.list(this.dbPath);
-    this.afAuth.authState.subscribe(user => {
+    /*this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
         localStorage.setItem('user', null);
       }
-    })
+    })*/
   }
   createAdmin(admin: Admin): void {
     this.AdminsRef.push(admin).catch((error)=>{
@@ -54,14 +54,7 @@ export class InfoAService {
    return this.AdminsRef.remove();
   }
 
-  async SigninA(email , password){
-    try {
-      await  this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      this.router.navigate(['/admin-home']);
-  } catch (e) {
-      alert("Error!"  +  e.message);
-  }
- }
+
 
  ForgotPasswordA(passwordResetEmail) {
   return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
