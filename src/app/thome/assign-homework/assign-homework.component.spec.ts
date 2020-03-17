@@ -10,7 +10,7 @@ describe('AssignHomeworkComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AssignHomeworkComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

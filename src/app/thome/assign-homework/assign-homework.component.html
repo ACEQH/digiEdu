@@ -1,28 +1,34 @@
-<form class="md-form">
-  <div class="file-field">
-    <div class="z-depth-1-half mb-4">
-      <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid"
-           alt="example placeholder">
+<section>
+  <div class="container p-5">
+    <!-- For demo purpose -->
+    <div class="row mb-5 text-center text-white">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4">File upload button </h1>
+        <p class="lead">Build a simple file upload button using Bootstrap 4.</p>
+      </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="btn btn-mdb-color btn-rounded float-left">
-        <span>Choose file</span>
-        <input type="file">
+    <!-- End -->
+
+
+    <div class="row">
+      <div class="col-lg-5 mx-auto">
+        <div class="p-5 bg-white shadow rounded-lg"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="200" class="d-block mx-auto mb-4 rounded-pill">
+
+          <!-- Default bootstrap file upload-->
+
+          <h6 class="text-center mb-4 text-muted">
+Upload the assignment
+          </h6>
+
+          <div class="custom-file overflow-hidden rounded-pill mb-5">
+            <input id="customFile" type="file" class="custom-file-input rounded-pill">
+            <label for="customFile" class="custom-file-label rounded-pill">Choose file</label>
+          </div>
+          <!-- End -->
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+        </div>
       </div>
     </div>
   </div>
-</form>
-<form class="md-form">
-  <div class="file-field">
-    <div class="mb-4">
-      <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-           class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
-    </div>
-    <div class="d-flex justify-content-center">
-      <div class="btn btn-mdb-color btn-rounded float-left">
-        <span>Add photo</span>
-        <input type="file">
-      </div>
-    </div>
-  </div>
-</form>
+</section>
