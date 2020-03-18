@@ -1,6 +1,7 @@
 import { Injectable ,NgZone} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { Router } from "@angular/router";
 import {Student} from './student';
@@ -10,11 +11,11 @@ import { error } from '@angular/compiler/src/util';
 })
 export class InfoService {
   private dbPath = '/Students';
-  StudentsRef : AngularFireList<Student> = null;
+  StudentsRef : AngularFirestoreCollection<Student> = null;
   studentData : any;
   student: Student;
-  constructor(private db: AngularFireDatabase , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) {
-    this.StudentsRef = db.list(this.dbPath);
+  constructor(private db: AngularFirestore , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone ) {
+    this.StudentsRef =this.db.collection(this.dbPath);
         /*this.afAuth.authState.subscribe(student =>{
             if(student){
               this.studentData=student;
@@ -29,7 +30,7 @@ export class InfoService {
   
  
   createStudent(student: Student): void {
-    this.StudentsRef.push(student).catch((error)=>{
+    this.StudentsRef.add({...student}).catch((error)=>{
       window.alert(error.message);
     })
 
@@ -41,19 +42,27 @@ export class InfoService {
   }
  
   updateStudent(ID: string, value: any): Promise<void> {
-    return this.StudentsRef.update(ID,value);
+    return this.StudentsRef.doc(ID).update(value);
   }
  
   deleteStudent(ID: string): Promise<void> {
-    return this.StudentsRef.remove(ID);
+    return this.StudentsRef.doc(ID).delete();
   }
  
-  getStudentList(): AngularFireList<Student> {
+  getStudentList(): AngularFirestoreCollection<Student> {
     return this.StudentsRef;
   }
  
-  deleteAll() :Promise<void>{
-   return this.StudentsRef.remove();
+  deleteAll() {
+    this.StudentsRef.get().subscribe(
+      querySnapshot => {
+        querySnapshot.forEach((doc) => {
+          doc.ref.delete();
+        });
+      },
+      error => {
+        console.log('Error: ', error);
+      });
   }
 
   
