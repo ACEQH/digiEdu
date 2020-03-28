@@ -58,7 +58,7 @@ export class RegisterParentComponent implements OnInit {
   getStudentList(){
     this.studentSrvice.getStudentList().snapshotChanges().pipe(map(changes =>
       changes.map(c =>
-        ({ ID: c.payload.key, ...c.payload.val() })
+        ({ ID: c.payload.doc.id, ...c.payload.doc.data() })
       )
     )
   ).subscribe( students => { this.students = students})
