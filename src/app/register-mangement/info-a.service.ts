@@ -1,23 +1,22 @@
-import { Injectable ,NgZone} from '@angular/core';
+import { Injectable , NgZone} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument , AngularFirestoreCollection } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
-import { Router } from "@angular/router";
-import { Admin } from "./admin";
-import { User } from  'firebase';
-
+import {Router} from '@angular/router';
+import { Admin } from './admin';
+import { error } from '@angular/compiler/src/util';
+import {Student} from '../register/student';
 @Injectable({
   providedIn: 'root'
 })
 export class InfoAService {
   private dbPath = '/Admins';
-  AdminsRef : AngularFireList<Admin> = null;
-  AdminData : any;
-  data:any;
+  AdminsRef: AngularFirestoreCollection<Admin> = null;
+  AdminData: any;
   admin: Admin;
-  user:User;
-  constructor(private db: AngularFireDatabase , public  afAuth: AngularFireAuth,public router: Router ,public ngZone: NgZone) { 
-    this.AdminsRef = db.list(this.dbPath);
+  constructor(private db: AngularFirestore , public  afAuth: AngularFireAuth, private router: Router ,private ngZone: NgZone) {
+    this.AdminsRef = this.db.collection(this.dbPath);
     /*this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -28,7 +27,7 @@ export class InfoAService {
     })*/
   }
   createAdmin(admin: Admin): void {
-    this.AdminsRef.push(admin).catch((error)=>{
+    this.AdminsRef.add({...admin}).catch((error)=>{
       window.alert(error.message);
     });
 
@@ -37,23 +36,30 @@ export class InfoAService {
     }));
     window.alert("Register success");
   }
- 
+
   updateAdmin(ID: string, value: any): Promise<void> {
-    return this.AdminsRef.update(ID,value);
-  }
- 
-  deleteAdmin(ID: string): Promise<void> {
-    return this.AdminsRef.remove(ID);
-  }
- 
-  getAdminList(): AngularFireList<Admin> {
-    return this.AdminsRef;
-  }
- 
-  deleteAll() :Promise<void>{
-   return this.AdminsRef.remove();
+    return this.AdminsRef.doc(ID).update(value);
   }
 
+  deleteAdmin(ID: string): Promise<void> {
+    return this.AdminsRef.doc(ID).delete();
+  }
+
+  getAdminList(): AngularFirestoreCollection<Student> {
+    return this.AdminsRef;
+  }
+
+  deleteAll(){
+   return this.AdminsRef.get().subscribe(
+     querySnapshot => {
+       querySnapshot.forEach((doc) => {
+         doc.ref.delete();
+       });
+  },
+     error => {
+       console.log('Error: ', error);
+     });
+  }
 
 
  ForgotPasswordA(passwordResetEmail) {
@@ -74,7 +80,7 @@ SendVerificationMailA() {
 
 get isLoggedInA(): boolean {
   const  user  =  JSON.parse(localStorage.getItem('user'));
-    return  user  !==  null;
+  return (user !== null && user.emailVerified !== false) ? true : false;
 }
 
 async SignOutA() {
