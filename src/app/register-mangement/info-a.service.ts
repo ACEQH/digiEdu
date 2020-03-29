@@ -45,7 +45,7 @@ export class InfoAService {
     return this.AdminsRef.doc(ID).delete();
   }
 
-  getAdminList(): AngularFirestoreCollection<Student> {
+  getAdminList(): AngularFirestoreCollection<Admin> {
     return this.AdminsRef;
   }
 

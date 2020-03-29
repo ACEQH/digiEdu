@@ -1,6 +1,7 @@
 import { Injectable ,NgZone} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { Router } from "@angular/router";
 import { Parent } from './parent';
@@ -13,15 +14,15 @@ export class InfoPService {
   
   private dbPath = '/Parents';
   private dbPath1 = '/Student';
-  ParentsRef : AngularFireList<Parent> = null;
+  ParentsRef : AngularFirestoreCollection<Parent> = null;
   //PSref : Docume
   UID : any;
   ID : any;
   parentData:any;
   parent:Parent;
   
-  constructor(private db: AngularFireDatabase , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) { 
-    this.ParentsRef = db.list(this.dbPath);
+  constructor(private db: AngularFirestore , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) { 
+    this.ParentsRef = this.db.collection(this.dbPath);
      /* this.afAuth.authState.subscribe(parent =>{
             if(parent){
               this.parentData=parent;
@@ -41,7 +42,7 @@ export class InfoPService {
   }
   createParent(parent: Parent): void {
     
-    this.ParentsRef.push(parent).catch((error)=>{
+    this.ParentsRef.add({...parent}).catch((error)=>{
       window.alert(error.message);
     });
 
@@ -54,19 +55,27 @@ export class InfoPService {
 
   
   updateParent(ID: string, value: any): Promise<void> {
-    return this.ParentsRef.update(ID,value);
+    return this.ParentsRef.doc(ID).update(value);
   }
  
   deleteParent(ID: string): Promise<void> {
-    return this.ParentsRef.remove(ID);
+    return this.ParentsRef.doc(ID).delete();
   }
  
-  getParentList(): AngularFireList<Parent> {
+  getParentList(): AngularFirestoreCollection<Parent> {
     return this.ParentsRef;
   }
  
-  deleteAll() : Promise<void>{
-   return this.ParentsRef.remove();
+  deleteAll(){
+   return this.ParentsRef.get().subscribe(
+    querySnapshot => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete();
+      });
+ },
+    error => {
+      console.log('Error: ', error);
+    });
   }
   
 
