@@ -1,3 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Welcome</title>
+  <h1></h1>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="back">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" href="#" [routerLink]="'/admin-home'">Smart Education</a>
+  <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Register
+        </a>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" [routerLink]="'/app/register'">Register Student</a>
+          <a class="dropdown-item" href="#" [routerLink]="'/app/register-teacher'">Register Teacher</a>
+          <a class="dropdown-item" href="#" [routerLink]="'/app/register-parent'">Register Parent</a>
+          <a class="dropdown-item" href="#" [routerLink]="'/app/register-mangement'">Register Admin</a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/app/complaint'">Complaint</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/app/evaluation-list'">Evaluation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/app/communication-list'">Communication</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="'/app/classes'">Classes</a>
+    </li>
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false"> More
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" [routerLink]="'/app/list'">Student List</a>
+        <a class="dropdown-item" href="#" [routerLink]="'/app/link-parent'">LinkParent&Student</a>
+        <a class="dropdown-item" href="#" [routerLink]="'/app/open-grading'">Open Grading</a>
+        <a class="dropdown-item" href="#" [routerLink]="'/app/contact-us'">Contact us</a>
+        <a class="dropdown-item" href="#" [routerLink]="'/app/about-us'">About us</a>
+      </div>
+    </div>
+
+    <li class="nav-item">
+
+      <button type="button" class="btn btn-primary" (click)="logoutA()">
+        Logout
+      </button>
+
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid" style="margin-top:80px">
 <div #table class="table-editable row column">
     <h1>Students Details</h1>
 <table class="table table-hover" >
@@ -17,8 +86,8 @@
                 <td>{{student.FirstName}}</td>
                 <td>{{student.LastName}}</td>
                 <td>{{student.Gender}}</td>
-                
-                        
+
+
           </tr>
         </tbody>
       </table>
@@ -30,7 +99,7 @@
     <table class="table table-hover" >
             <thead class="thead-dark">
               <tr>
-    
+
                 <th scope="col">#ID</th>
                 <th scope="col">FirstName</th>
                 <th scope="col">LastName</th>
@@ -39,20 +108,19 @@
             </thead>
             <tbody >
               <tr  *ngFor=" let teacher of teachers">
-    
+
                     <td scope="row" >{{teacher.ID}}</td>
                     <td>{{teacher.FirstName}}</td>
                     <td>{{teacher.LastName}}</td>
                     <td>{{teacher.Gender}}</td>
-                    
-                            
+
+
               </tr>
             </tbody>
           </table>
-    
+
         </div>
 
 
 
 
-    

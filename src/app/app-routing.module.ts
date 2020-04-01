@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'admin-home/register-mangement', redirectTo: 'register-mangement'},
   {path: 'app/list', component: StudentsDetailsComponent},
   {path: 'admin-home/list', redirectTo: 'list'},
-  {path :'app/classes' , component : ClassesComponent },
+  {path : 'app/classes' , component : ClassesComponent },
   {path: 'admin-home/classes', redirectTo: 'classes'},
   {path: 'admin-home', component: AdminHomeComponent},
   {path: 'app/contact-us', component: ContactUsComponent},
