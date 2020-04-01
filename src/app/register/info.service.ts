@@ -35,7 +35,7 @@ export class InfoService {
     this.StudentsRef.add({...student}).catch((error)=>{
       window.alert(error.message);
     })
-
+    
     ;
      this.afAuth.auth.createUserWithEmailAndPassword(student.Email,student.Password).catch((error=>{
       window.alert(error.message);

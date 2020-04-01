@@ -2,12 +2,10 @@ import { Injectable , NgZone} from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from 'firebase/app';
 import { Router } from "@angular/router";
-import { environment } from '../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
-import { firestore } from 'firebase/app';
-import { AngularFirestore } from '@angular/fire/firestore/firestore';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +13,7 @@ import { AngularFirestore } from '@angular/fire/firestore/firestore';
 export class LoginHomeService {
   userState: any;
 
-  constructor(public afAuth: AngularFireAuth ,private router: Router ,private ngZone: NgZone, private _http: HttpClient, private _afs: AngularFirestore ) { 
+  constructor(public afAuth: AngularFireAuth ,private router: Router ,private ngZone: NgZone ) { 
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userState = user;
@@ -29,9 +27,7 @@ export class LoginHomeService {
   }
  
 
-  redirectLogin() {
-    return this.afAuth.auth.getRedirectResult();
-  }
+ 
 
 
   SigninS(email , password){
