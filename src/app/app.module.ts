@@ -46,6 +46,7 @@ import { ContactInfoComponent } from './thome/contact-info/contact-info.componen
 import { CommunicationTComponent } from './thome/communication-t/communication-t.component';
 import { ViewBComponent } from './shome/view-b/view-b.component';
 import { LinkParentComponent } from './admin-home/link-parent/link-parent.component';
+import { ClassesComponent } from './admin-home/classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { LinkParentComponent } from './admin-home/link-parent/link-parent.compon
     CommunicationTComponent,
     ComplaintComponent,
     ViewBComponent,
-    LinkParentComponent
+    LinkParentComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,

@@ -18,18 +18,18 @@ export class StudentsDetailsComponent implements OnInit {
   ngOnInit() {
     this.getStudentList();
   }
-  UpdateData(PhoneNumber:string , Level : string , Password : string ){
+  UpdateData(phoneNumber:string , level : string , password : string ){
     this.sd = [this.student.PhoneNumber , this.student.Level ,this.student.Password];
-    this.studentSrvice.updateStudent(this.student.ID , this.sd).catch(err => console.log(err));
+    this.studentSrvice.updateStudent(this.student.Key , {PhoneNumber: phoneNumber, Level : level , Password : password}).catch(err => console.log(err));
   }
 
   DeleteStudent(){
-    this.studentSrvice.deleteStudent(this.student.ID).catch(err => console.log(err));
+    this.studentSrvice.deleteStudent(this.student.Key).catch(err => console.log(err));
   }
   getStudentList(){
     this.studentSrvice.getStudentList().snapshotChanges().pipe(map(changes =>
       changes.map(c =>
-        ({ ID: c.payload.doc.id, ...c.payload.doc.data() })
+        ({ Key: c.payload.doc.id, ...c.payload.doc.data() })
       )
     )
   ).subscribe( students => { this.students = students})

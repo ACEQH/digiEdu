@@ -1,11 +1,12 @@
 import { Injectable ,NgZone} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection , DocumentReference} from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { Router } from "@angular/router";
 import {Student} from './student';
 import { error } from '@angular/compiler/src/util';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +45,7 @@ export class InfoService {
   }
  
   updateStudent(ID: string, value: any): Promise<void> {
+    
     return this.StudentsRef.doc(ID).update(value);
   }
  
@@ -54,6 +56,16 @@ export class InfoService {
   getStudentList(): AngularFirestoreCollection<Student> {
     return this.StudentsRef;
   }
+
+  /*StudentList(){
+    this.StudentsRef.snapshotChanges().pipe(map(changes =>
+      changes.map(c =>
+        ({ ID: c.payload.doc.id, ...c.payload.doc.data() })
+      )
+    )
+  )
+  
+  }*/
  
   deleteAll() {
     this.StudentsRef.get().subscribe(

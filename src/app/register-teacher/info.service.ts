@@ -48,7 +48,7 @@ export class InfoServicet {
     return this.TeachersRef.doc(ID).delete();
   }
  
-  getStudentList(): AngularFirestoreCollection<Teacher> {
+  getTeacherList(): AngularFirestoreCollection<Teacher> {
     return this.TeachersRef;
   }
  
@@ -63,6 +63,7 @@ export class InfoServicet {
         console.log('Error: ', error);
       });
 }
+
 
 
 ForgotPasswordT(passwordResetEmail) {

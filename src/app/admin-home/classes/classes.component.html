@@ -1,0 +1,58 @@
+<div #table class="table-editable row column">
+    <h1>Students Details</h1>
+<table class="table table-hover" >
+        <thead class="thead-dark">
+          <tr>
+
+            <th scope="col">#ID</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Gender</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr  *ngFor=" let student of students">
+
+                <td scope="row" >{{student.ID}}</td>
+                <td>{{student.FirstName}}</td>
+                <td>{{student.LastName}}</td>
+                <td>{{student.Gender}}</td>
+                
+                        
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div #table1 class="table-editable row column">
+        <h1>Teachers details</h1>
+    <table class="table table-hover" >
+            <thead class="thead-dark">
+              <tr>
+    
+                <th scope="col">#ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Gender</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr  *ngFor=" let teacher of teachers">
+    
+                    <td scope="row" >{{teacher.ID}}</td>
+                    <td>{{teacher.FirstName}}</td>
+                    <td>{{teacher.LastName}}</td>
+                    <td>{{teacher.Gender}}</td>
+                    
+                            
+              </tr>
+            </tbody>
+          </table>
+    
+        </div>
+
+
+
+
+    

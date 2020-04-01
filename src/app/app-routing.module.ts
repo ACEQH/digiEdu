@@ -33,7 +33,7 @@ import {CommunicationTComponent} from './thome/communication-t/communication-t.c
 import {StudentGradeComponent} from './phome/student-grade/student-grade.component';
 import {EvaluationPComponent} from './phome/evaluation-p/evaluation-p.component';
 import {CommunicationPComponent} from './phome/communication-p/communication-p.component';
-
+import {ClassesComponent} from './admin-home/classes/classes.component';
 const routes: Routes = [
   {path: 'app/register', component: RegisterComponent},
   {path: 'register', redirectTo: 'register'},
@@ -46,8 +46,8 @@ const routes: Routes = [
   {path: 'admin-home/register-mangement', redirectTo: 'register-mangement'},
   {path: 'app/list', component: StudentsDetailsComponent},
   {path: 'admin-home/list', redirectTo: 'list'},
-
-
+  {path :'app/classes' , component : ClassesComponent },
+  {path: 'admin-home/classes', redirectTo: 'classes'},
   {path: 'admin-home', component: AdminHomeComponent},
   {path: 'app/contact-us', component: ContactUsComponent},
   {path: 'admin-home/contact-us', redirectTo: 'contact-us'},

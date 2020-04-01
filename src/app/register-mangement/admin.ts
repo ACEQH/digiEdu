@@ -1,4 +1,5 @@
 export class Admin {
+    Key : string;
     FirstName : string;
     LastName : string;
     ID : string;

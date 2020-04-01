@@ -39,6 +39,9 @@ export class LoginHomeService {
    }).catch((error) => {
      window.alert(error.message)
    })
+   //window.alert(this.afAuth.auth.currentUser.uid)
+
+   
  }
 
  SigninP(email , password){
@@ -83,7 +86,9 @@ SignOut() {
   return this.afAuth.auth.signOut().then(() => {
     localStorage.removeItem('user');
     this.router.navigate(['login']);
+    window.alert(this.afAuth.auth.currentUser.uid)
   })
+  
 }
 
 }
