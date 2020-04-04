@@ -27,13 +27,12 @@ export class InfoAService {
     })*/
   }
   createAdmin(admin: Admin): void {
-    this.AdminsRef.add({...admin}).catch((error)=>{
-      window.alert(error.message);
-    });
+     this.afAuth.auth.createUserWithEmailAndPassword(admin.Email,admin.Password).then(user =>{
 
-     this.afAuth.auth.createUserWithEmailAndPassword(admin.Email,admin.Password).catch((error=>{
-      window.alert(error.message);
-    }));
+      this.AdminsRef.doc(user.user.uid).set({...admin}).catch((error)=>{
+        window.alert(error.message);
+      });
+  });
     window.alert("Register success");
   }
 

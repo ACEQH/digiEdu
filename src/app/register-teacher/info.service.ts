@@ -36,13 +36,12 @@ export class InfoServicet {
   
  
   createTeacher(teacher: Teacher): void {
-    
-    this.TeachersRef.add({...teacher}).catch((error)=>{
-      window.alert(error.message);
-    });
-    this.afAuth.auth.createUserWithEmailAndPassword(teacher.Email,teacher.Password).catch((error=>{
-      window.alert(error.message);
-    }));
+     this.afAuth.auth.createUserWithEmailAndPassword(teacher.Email,teacher.Password).then(user =>{
+
+      this.TeachersRef.doc(user.user.uid).set({...teacher}).catch((error)=>{
+        window.alert(error.message);
+      });
+  });
     window.alert("Register success");
   }
 

@@ -2,11 +2,12 @@ import { Injectable ,NgZone} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection , DocumentReference} from '@angular/fire/firestore';
-import { auth } from 'firebase/app';
+import { auth, functions } from 'firebase/app';
 import { Router } from "@angular/router";
 import {Student} from './student';
 import { error } from '@angular/compiler/src/util';
 import { map } from 'rxjs/operators';
+import { constants } from 'os';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,14 +34,12 @@ export class InfoService {
   
  
   createStudent(student: Student): void {
-    this.StudentsRef.add({...student}).catch((error)=>{
-      window.alert(error.message);
-    })
-    
-    ;
-     this.afAuth.auth.createUserWithEmailAndPassword(student.Email,student.Password).catch((error=>{
-      window.alert(error.message);
-    }));
+     this.afAuth.auth.createUserWithEmailAndPassword(student.Email,student.Password).then(user =>{
+
+        this.StudentsRef.doc(user.user.uid).set({...student}).catch((error)=>{
+          window.alert(error.message);
+        });
+    });
     window.alert("Register success");
   }
  

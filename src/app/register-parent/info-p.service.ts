@@ -44,14 +44,12 @@ export class InfoPService {
     
   }
   createParent(parent: Parent): void {
-    
-    this.ParentsRef.add({...parent}).catch((error)=>{
-      window.alert(error.message);
-    });
+     this.afAuth.auth.createUserWithEmailAndPassword(parent.Email,parent.Password).then(user =>{
 
-    this.afAuth.auth.createUserWithEmailAndPassword(parent.Email,parent.Password).catch((error=>{
-      window.alert(error.message);
-    }));
+      this.ParentsRef.doc(user.user.uid).set({...parent}).catch((error)=>{
+        window.alert(error.message);
+      });
+  });
     window.alert("Register success");
   // this.ID=this.PSref.push(ps).key
   }
