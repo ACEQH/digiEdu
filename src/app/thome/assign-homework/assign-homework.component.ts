@@ -29,7 +29,7 @@ upload(event) {
 }
   ngOnInit() {
   }
-  Click() {
+  click() {
     window.alert("The homework was uploaded successfully");
   }
 
