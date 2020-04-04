@@ -59,15 +59,18 @@ Upload the assignment
           </h6>
 
           <div class="custom-file overflow-hidden rounded-pill mb-5">
-            <input id="customFile" type="file" (change)="fileProgress($event)" class="custom-file-input rounded-pill">
+            <input id="customFile" type="file" (change)="upload($event)" (change)="fileProgress($event)" class="custom-file-input rounded-pill">
 
             <label for="customFile" class="custom-file-label rounded-pill"> <span *ngIf="fileName">{{fileName}}</span>
             </label>
+            <b></b>
+            <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+              File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
 
+            </div>
           </div>
           <!-- End -->
           <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
         </div>
       </div>
     </div>
