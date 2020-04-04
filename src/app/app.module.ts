@@ -47,6 +47,7 @@ import { CommunicationTComponent } from './thome/communication-t/communication-t
 import { ViewBComponent } from './shome/view-b/view-b.component';
 import { LinkParentComponent } from './admin-home/link-parent/link-parent.component';
 import { ClassesComponent } from './admin-home/classes/classes.component';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,7 @@ import { ClassesComponent } from './admin-home/classes/classes.component';
     AngularFirestoreModule
 
   ],
-  providers: [AngularFirestore ,InfoService , { provide: FirestoreSettingsToken, useValue: {} } , InfoServicet , InfoPService , InfoAService],
+  providers: [AngularFirestore , AngularFireStorage, InfoService , { provide: FirestoreSettingsToken, useValue: {} } , InfoServicet , InfoPService , InfoAService],
   bootstrap: [AppComponent ]
 })
 export class AppModule { }
