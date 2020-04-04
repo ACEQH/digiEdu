@@ -75,7 +75,9 @@ export class ClassesComponent implements OnInit {
     this.TeacherInfo.createClass(this.Key,this.classes);
   }
 
- 
+  end(){
+    window.alert("Class was created");
+  }
 
   CreateClasses(student : any){
     this.classes.ClassName = 'class'+ this.ClassN;
