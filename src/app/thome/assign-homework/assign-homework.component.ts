@@ -24,10 +24,13 @@ upload(event) {
     const id = Math.random().toString(36).substring(2);
     this.ref = this.afStorage.ref(id);
     this.task = this.ref.put(event.target.files[0]);
-    this.downloadURL = this.task.getdownloadURL();
+  
 
 }
   ngOnInit() {
+  }
+  click() {
+    window.alert("The homework was uploaded successfully");
   }
 
 }

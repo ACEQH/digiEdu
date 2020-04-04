@@ -87,7 +87,7 @@
                 <td>{{student.FirstName}}</td>
                 <td>{{student.LastName}}</td>
                 <td>{{student.Gender}}</td>
-                    {{student.Key}}
+
                 <td>
                     <input type="checkbox" class="glyphicon glyphicon-check" >
                 </td>
@@ -98,7 +98,7 @@
 
     </div>
 
-    <div #table1 class="table-editable row column">
+    <div #table1 class="verticalLine table-editable row column">
         <h1>Teachers details</h1>
     <table class="table table-hover" >
             <thead class="thead-dark">
@@ -118,7 +118,7 @@
                     <td>{{teacher.FirstName}}</td>
                     <td>{{teacher.LastName}}</td>
                     <td>{{teacher.Gender}}</td>
-                        {{teacher.Key}}
+
                     <td>
                         <input type="checkbox" class="glyphicon glyphicon-check">
                     </td>
@@ -132,7 +132,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" (click)= "end()"> Create Class  </button>
           </div>
-    
+
 
 
 
