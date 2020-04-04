@@ -11,6 +11,7 @@ export class StudentsDetailsComponent implements OnInit {
   @Input() student : Student;
   students:any;
   sd: any[];
+  Key:any;
   constructor( private studentSrvice:InfoService) {
 
    }
@@ -19,12 +20,13 @@ export class StudentsDetailsComponent implements OnInit {
     this.getStudentList();
   }
   UpdateData(phoneNumber:string , level : string , password : string ){
-    this.sd = [this.student.PhoneNumber , this.student.Level ,this.student.Password];
+    
     this.studentSrvice.updateStudent(this.student.Key , {PhoneNumber: phoneNumber, Level : level , Password : password}).catch(err => console.log(err));
   }
 
   DeleteStudent(){
-    this.studentSrvice.deleteStudent(this.student.Key).catch(err => console.log(err));
+    this.studentSrvice.deleteStudent(this.Key).catch(err => console.log(err));
+    window.alert("Student was deleted");
   }
   getStudentList(){
     this.studentSrvice.getStudentList().snapshotChanges().pipe(map(changes =>
@@ -33,6 +35,11 @@ export class StudentsDetailsComponent implements OnInit {
       )
     )
   ).subscribe( students => { this.students = students})
+  }
+
+  KeyAssign(Key1 : any ){
+    this.Key = Key1.Key;
+    this.DeleteStudent();
   }
   
 }

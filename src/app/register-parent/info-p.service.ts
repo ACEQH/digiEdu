@@ -15,14 +15,17 @@ export class InfoPService {
   private dbPath = '/Parents';
   private dbPath1 = '/Student';
   ParentsRef : AngularFirestoreCollection<Parent> = null;
+  PstdRef : AngularFirestoreCollection<PS> = null;
   //PSref : Docume
   UID : any;
   ID : any;
   parentData:any;
   parent:Parent;
+  ps:PS;
   
   constructor(private db: AngularFirestore , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) { 
     this.ParentsRef = this.db.collection(this.dbPath);
+    
      /* this.afAuth.authState.subscribe(parent =>{
             if(parent){
               this.parentData=parent;
@@ -53,6 +56,19 @@ export class InfoPService {
   // this.ID=this.PSref.push(ps).key
   }
 
+  Link_Student(Key : string , ps : PS ){
+    this.ParentsRef.doc(Key).collection(this.dbPath1).add({...ps}).catch((error)=>{
+      window.alert(error.message);
+    });
+
+  
+
+  }
+
+  getClasses(Key : string ){
+    this.ParentsRef.doc(Key).collection(this.dbPath1);
+  }
+ 
   
   updateParent(ID: string, value: any): Promise<void> {
     return this.ParentsRef.doc(ID).update(value);

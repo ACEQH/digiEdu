@@ -75,4 +75,9 @@
   <script data-who='💎 Made with naker.io 💎' src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.1/viewer.js'
           data-back='{"particle":{"direction1":{"x":100,"y":100,"z":100},"direction2":{"x":-100,"y":-100,"z":-100},"life":0.7,"power":0.005,"texture":"https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_04.png","number":224,"colorStart":[255,234,0,1],"colorEnd":[245,246,215,1],"sizeStart":0.31,"sizeEnd":0.62},"environment":{"gradient":"horizontal","sensitivity":1,"colorStart":[21,24,25,1],"colorEnd":[95,100,118,1]}}'></script>
 </div>
-<p>open-grading works!</p>
+<div style="width: 300px;" *ngFor=" let teacher of teachers" >
+  <hr>
+  <button class="button is-small btn-danger" *ngIf='teacher.Grading' (click)='updateGrading(false)'>Inactive</button>
+ 
+  <button class="button is-small btn-primary" *ngIf='!teacher.Grading' (click)='updateGrading(true)'>Active</button>
+</div>

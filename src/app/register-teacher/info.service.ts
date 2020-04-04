@@ -62,6 +62,18 @@ export class InfoServicet {
   updateTeacher(ID: string, value: any): Promise<void> {
     return this.TeachersRef.doc(ID).update(value);
   }
+
+  updategrading( value: any) {
+    return this.TeachersRef.get().subscribe(
+      querySnapshot => {
+        querySnapshot.forEach((doc) => {
+          doc.ref.update(value);
+        });
+   },
+      error => {
+        console.log('Error: ', error);
+      });;
+  }
  
   deleteTeacher(ID: string): Promise<void> {
     return this.TeachersRef.doc(ID).delete();

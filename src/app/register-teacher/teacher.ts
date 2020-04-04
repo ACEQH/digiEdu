@@ -8,4 +8,5 @@ export class Teacher {
     Teaching_Level : string ;
     Password : string;
     Email : string;
+    Grading =false;
 }

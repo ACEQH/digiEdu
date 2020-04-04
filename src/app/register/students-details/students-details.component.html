@@ -93,7 +93,7 @@
           </tr>
         </thead>
         <tbody >
-          <tr  *ngFor=" let student of students">
+          <tr  *ngFor=" let student of students" (click)="KeyAssign(student)" >
 
                 <td scope="row" >{{student.ID}}</td>
                 <td>{{student.FirstName}}</td>
@@ -104,14 +104,14 @@
                 <td contenteditable="true">{{student.Password}}</td>
                 <td>
                         <div class="form">
-                                <span class="button is-small btn-primary"  (click)="UpdateData(students.PhoneNumber,students.Level,students.Password)">Edit</span>
+                                <button class="button is-small btn-primary" (click)="UpdateData(student.PhoneNumber,student.Level,student.Password)">Edit</button>
                                 <label class="form" for="tableMaterialCheck2"></label>
                                 </div>
                             </td>
 
                             <td>
                                     <div class="form">
-                                            <span class="button is-small btn-danger" (click)="DeleteStudent()">Delete</span>
+                                            <button class="button is-small btn-danger" >Delete</button>
                                             <label class="form" for="tableMaterialCheck2"></label>
                                             </div>
                                         </td>

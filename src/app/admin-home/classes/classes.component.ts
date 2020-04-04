@@ -55,7 +55,7 @@ export class ClassesComponent implements OnInit {
 /*StudentList(){
 
   this.StudentInfo.StudentList();
- 
+ this.sd = [this.student.PhoneNumber , this.student.Level ,this.student.Password];
 }*/
 
   slec(std:any){
@@ -82,6 +82,8 @@ export class ClassesComponent implements OnInit {
     this.classes.StudentID = student.ID;
     this.classes.StudentFn = student.FirstName;
     this.classes.StudentLn = student.LastName;
+
+    this.IntiClass();
     
   }
   onSubmit(){
