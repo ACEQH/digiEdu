@@ -12,6 +12,7 @@ import { switchMap, take } from 'rxjs/operators';
 })
 export class LoginHomeService {
   userState: any;
+  Uid :any;
 
   constructor(public afAuth: AngularFireAuth ,private router: Router ,private ngZone: NgZone ) { 
     this.afAuth.authState.subscribe(user => {
@@ -26,7 +27,9 @@ export class LoginHomeService {
     })
   }
  
-
+  getData(){
+   this.Uid=this.afAuth.auth.currentUser.uid;
+  }
  
 
 
