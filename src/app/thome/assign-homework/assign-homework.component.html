@@ -10,7 +10,7 @@
 </head>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <a class="navbar-brand" href="#" [routerLink]="'/THome'" >Smart Education</a>
+  <a class="navbar-brand" href="#" [routerLink]="'/THome'">Smart Education</a>
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="#" [routerLink]="'/THome/grading'">Grading</a>
@@ -25,7 +25,7 @@
       <a class="nav-link" href="#" [routerLink]="'/THome/communication-t'">Communication</a>
     </li>
     <li class="nav-item">
-      <button type="button" class="btn btn-primary" (click)="logoutT()" >
+      <button type="button" class="btn btn-primary" (click)="logoutT()">
         Logout
       </button>
     </li>
@@ -37,36 +37,39 @@
 </div>
 <div class="container" style="background-image: image()">
 </div>
-<div class = "back">
-  <script data-who='💎 Made with naker.io 💎' src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.1/viewer.js' data-back='{"particle":{"direction1":{"x":100,"y":100,"z":100},"direction2":{"x":-100,"y":-100,"z":-100},"life":0.7,"power":0.005,"texture":"https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_04.png","number":224,"colorStart":[255,234,0,1],"colorEnd":[245,246,215,1],"sizeStart":0.31,"sizeEnd":0.62},"environment":{"gradient":"horizontal","sensitivity":1,"colorStart":[21,24,25,1],"colorEnd":[95,100,118,1]}}' ></script>
+<div class="back">
+  <script data-who='💎 Made with naker.io 💎' src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.1/viewer.js'
+          data-back='{"particle":{"direction1":{"x":100,"y":100,"z":100},"direction2":{"x":-100,"y":-100,"z":-100},"life":0.7,"power":0.005,"texture":"https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_04.png","number":224,"colorStart":[255,234,0,1],"colorEnd":[245,246,215,1],"sizeStart":0.31,"sizeEnd":0.62},"environment":{"gradient":"horizontal","sensitivity":1,"colorStart":[21,24,25,1],"colorEnd":[95,100,118,1]}}'></script>
 </div>
 
 <section>
   <div class="container p-5">
     <div class="row">
       <div class="col-lg-5 mx-auto">
-        <div class="p-5 bg-white shadow rounded-lg"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="200" class="d-block mx-auto mb-4 rounded-pill">
+        <div class="p-5 bg-white shadow rounded-lg"><img
+          src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="200"
+          class="d-block mx-auto mb-4 rounded-pill">
 
           <!-- Default bootstrap file upload-->
           <div class="form-group">
-            <label >Choose the class</label>
-            <select class="form-control" >
-              <option  >Choose the class</option>
+            <label>Choose the class</label>
+            <select class="form-control">
+              <option>Choose the class</option>
             </select>
           </div>
           <h6 class="text-center mb-4 text-muted">
-Upload the assignment
+            Upload the assignment
           </h6>
 
           <div class="custom-file overflow-hidden rounded-pill mb-5">
-            <input id="customFile" type="file" (change)="upload($event)" (change)="fileProgress($event)" class="custom-file-input rounded-pill">
+            <input id="customFile" type="file" (change)="upload($event)" (change)="fileProgress($event)"
+                   class="custom-file-input rounded-pill">
 
             <label for="customFile" class="custom-file-label rounded-pill"> <span *ngIf="fileName">{{fileName}}</span>
             </label>
             <b></b>
-            <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-              File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
-
+            <div class="result" *ngIf="downloadURL | async; let uploadSrc">
+              <a [href]="uploadSrc">You just uploaded this file!</a>
             </div>
           </div>
           <!-- End -->
