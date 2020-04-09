@@ -41,4 +41,47 @@
   <script data-who='💎 Made with naker.io 💎' src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.1/viewer.js' data-back='{"particle":{"direction1":{"x":100,"y":100,"z":100},"direction2":{"x":-100,"y":-100,"z":-100},"life":0.7,"power":0.005,"texture":"https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_04.png","number":224,"colorStart":[255,234,0,1],"colorEnd":[245,246,215,1],"sizeStart":0.31,"sizeEnd":0.62},"environment":{"gradient":"horizontal","sensitivity":1,"colorStart":[21,24,25,1],"colorEnd":[95,100,118,1]}}' ></script>
 </div>
 
-<p>grading works!</p>
+<div #table class="table-editable">
+  <h1>Class Details</h1>
+<table class="table table-hover" >
+      <thead class="thead-dark">
+        <tr>
+
+          <th scope="col">ClassName</th>
+          <th scope="col">StudentID</th>
+          <th scope="col">StudentFn</th>
+          <th scope="col">StudentLn</th>
+          <th scope="col">Quiz 1 </th>
+          <th scope="col">Quiz 2 </th>
+          <th scope="col">Homework 1 </th>
+          <th scope="col"> Homework 2 </th>
+          <th scope="col"> Mid terim exam </th>
+          <th scope="col"> Final exam </th>
+          <th scope="col"> Set Grade</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr  *ngFor=" let class of classes" (click)="grade(class)">
+
+              <td scope="row" >{{class.ClassName}}</td>
+              <td>{{class.StudentID}}</td>
+              <td>{{class.StudentFn}}</td>
+              <td>{{class.StudentLn}}</td>
+             
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Quiz_1"></td>
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Quiz_2"></td>
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Homework_1"></td>
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Homework_2"></td>
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Mid_term"></td>
+              <td contenteditable="true"><input type="number" [(ngModel)]= "Final"></td>
+              <td>
+                <div class="form">
+                        <button class="button is-small btn-primary" >Grade</button>
+                        <label class="form" for="tableMaterialCheck2"></label>
+                        </div>
+                    </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>

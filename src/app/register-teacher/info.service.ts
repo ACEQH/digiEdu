@@ -17,7 +17,7 @@ export class InfoServicet {
   private dbPath = '/Teachers';
   private subDbPath = '/Classes'
   TeacherData:any;
-  TeachersRef : AngularFirestoreCollection<Teacher> = null;
+  TeachersRef : AngularFirestoreCollection<Teacher|Class> = null;
   ClassesRef : AngularFirestoreCollection<Class> = null;
   constructor(private db: AngularFirestore , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) {
     this.TeachersRef = this.db.collection(this.dbPath);
@@ -46,16 +46,20 @@ export class InfoServicet {
   }
 
   createClass(Key : string , classes : Class ){
-    this.TeachersRef.doc(Key).collection(this.subDbPath).add({...classes}).catch((error)=>{
+    this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students').add({...classes}).catch((error)=>{
       window.alert(error.message);
     });
 
-    window.alert("Class was created");
+   
 
   }
 
-  getClasses(Key : string ){
-    this.TeachersRef.doc(Key).collection(this.subDbPath);
+  Grade(Key : string, KeyS :string, value:any) {
+   this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students').doc(KeyS).update({...value});
+  }
+
+  getClasses(Key : string ): AngularFirestoreCollection<Class>{
+    return this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students');
   }
  
   updateTeacher(ID: string, value: any): Promise<void> {
@@ -78,7 +82,7 @@ export class InfoServicet {
     return this.TeachersRef.doc(ID).delete();
   }
  
-  getTeacherList(): AngularFirestoreCollection<Teacher> {
+  getTeacherList(): AngularFirestoreCollection<Teacher|Class> {
     return this.TeachersRef;
   }
  
