@@ -51,13 +51,11 @@
           <th scope="col">StudentID</th>
           <th scope="col">StudentFn</th>
           <th scope="col">StudentLn</th>
-          <th scope="col">Quiz 1 </th>
-          <th scope="col">Quiz 2 </th>
-          <th scope="col">Homework 1 </th>
-          <th scope="col"> Homework 2 </th>
-          <th scope="col"> Mid terim exam </th>
-          <th scope="col"> Final exam </th>
-          <th scope="col"> Set Grade</th>
+          <th scope="col">Grading type</th>
+          <th scope="col">Score</th>
+          <th scope="col">Out of</th>
+          <th scope="col">Grade</th>
+          
         </tr>
       </thead>
       <tbody >
@@ -68,12 +66,16 @@
               <td>{{class.StudentFn}}</td>
               <td>{{class.StudentLn}}</td>
              
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Quiz_1"></td>
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Quiz_2"></td>
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Homework_1"></td>
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Homework_2"></td>
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Mid_term"></td>
-              <td contenteditable="true"><input type="number" [(ngModel)]= "Final"></td>
+              <td contenteditable="true"><select id="Level" class="form-control" required  name="">
+                  <option> Choose...</option>
+                  <option>Quiz</option>
+                  <option>Homework</option>
+                  <option>Mid term</option>
+                  <option>Final Exam</option>
+                </select></td>
+              <td contenteditable="true"><input type="number"></td>
+              <td contenteditable="true"><input type="number"></td>
+              
               <td>
                 <div class="form">
                         <button class="button is-small btn-primary" >Grade</button>
