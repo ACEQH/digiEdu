@@ -40,7 +40,7 @@
 <div class = "back">
   <script data-who='💎 Made with naker.io 💎' src='https://d23jutsnau9x47.cloudfront.net/back/v1.0.1/viewer.js' data-back='{"particle":{"direction1":{"x":100,"y":100,"z":100},"direction2":{"x":-100,"y":-100,"z":-100},"life":0.7,"power":0.005,"texture":"https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_04.png","number":224,"colorStart":[255,234,0,1],"colorEnd":[245,246,215,1],"sizeStart":0.31,"sizeEnd":0.62},"environment":{"gradient":"horizontal","sensitivity":1,"colorStart":[21,24,25,1],"colorEnd":[95,100,118,1]}}' ></script>
 </div>
-
+<form (ngSubmit)="onSubmit()">
 <div #table class="table-editable">
   <h1>Class Details</h1>
 <table class="table table-hover" >
@@ -59,31 +59,33 @@
         </tr>
       </thead>
       <tbody >
-        <tr  *ngFor=" let class of classes" (click)="grade(class)">
-
+        <tr  *ngFor=" let class of classes ; let index = index" (click)="grade(class)">
+              
               <td scope="row" >{{class.ClassName}}</td>
               <td>{{class.StudentID}}</td>
               <td>{{class.StudentFn}}</td>
               <td>{{class.StudentLn}}</td>
-             
-              <td contenteditable="true"><select id="Level" class="form-control" required  name="">
+              
+                <td contenteditable="true"><select  class="form-control"  required [(ngModel)]="class.Grade_type" name="type{{index}}">
                   <option> Choose...</option>
                   <option>Quiz</option>
                   <option>Homework</option>
                   <option>Mid term</option>
                   <option>Final Exam</option>
                 </select></td>
-              <td contenteditable="true"><input type="number"></td>
-              <td contenteditable="true"><input type="number"></td>
+                <td contenteditable="true"><input type="number" [(ngModel)]="class.Score" name="sc{{index}}"></td>
+                <td contenteditable="true"><input type="number"  [(ngModel)]="class.Outof" name="ou{{index}}"></td>
               
-              <td>
+                <td>
                 <div class="form">
                         <button class="button is-small btn-primary" >Grade</button>
                         <label class="form" for="tableMaterialCheck2"></label>
                         </div>
                     </td>
+                    
         </tr>
       </tbody>
     </table>
 
   </div>
+</form>

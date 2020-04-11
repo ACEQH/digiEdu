@@ -7,18 +7,20 @@ import { Router } from "@angular/router";
 import {Teacher} from './teacher'
 import { Student } from '../register/student';
 import { Class } from 'src/app/register-teacher/class';
-
+import { Grading } from 'src/app/register-teacher/grading';
 @Injectable({
   providedIn: 'root'
 })
 export class InfoServicet {
   techer:Teacher;
   class: Class;
+  grade : Grading;
   private dbPath = '/Teachers';
   private subDbPath = '/Classes'
   TeacherData:any;
   TeachersRef : AngularFirestoreCollection<Teacher|Class> = null;
   ClassesRef : AngularFirestoreCollection<Class> = null;
+  GradesRef : AngularFirestoreCollection<Grading> = null;
   constructor(private db: AngularFirestore , private  afAuth: AngularFireAuth,private router: Router ,private ngZone: NgZone) {
     this.TeachersRef = this.db.collection(this.dbPath);
     
@@ -54,8 +56,12 @@ export class InfoServicet {
 
   }
 
-  Grade(Key : string, KeyS :string, value:any) {
-   this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students').doc(KeyS).update({...value});
+  Grade(Key : string, KeyS :string, grade:Grading) {
+   this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students').doc(KeyS).collection('grade').add({...grade});
+  }
+
+  getGrade(Key : string , Keys :string): AngularFirestoreCollection<Grading> {
+   return this.TeachersRef.doc(Key).collection(this.subDbPath).doc(Key).collection('students').doc(Keys).collection('grade');
   }
 
   getClasses(Key : string ): AngularFirestoreCollection<Class>{
