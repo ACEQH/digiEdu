@@ -46,9 +46,7 @@ export class GradingComponent implements OnInit {
     
   }
 
-  gr(){
-    this.teacherInfo.Grade('WTOB2et4nHa8F1o6RxmF' ,'43HhRIdwj7WZBpPWHMSy', this.grades);
-  }
+  
 
   onSubmit(){
     this.submit = true;

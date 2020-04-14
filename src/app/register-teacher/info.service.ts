@@ -4,10 +4,11 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument , AngularFirestoreCollection } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { Router } from "@angular/router";
-import {Teacher} from './teacher'
+import { Teacher } from './teacher'
 import { Student } from '../register/student';
 import { Class } from 'src/app/register-teacher/class';
 import { Grading } from 'src/app/register-teacher/grading';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 @Injectable({
   providedIn: 'root'
 })
