@@ -42,6 +42,8 @@ export class CommunicationSComponent implements OnInit {
     
     this.submit=false;
     this.mesinfo.createMessage('WTOB2et4nHa8F1o6RxmF' , this.Message);
+    window.alert('The message was sent seccessfully')
+
   }
 
   KeyAssign(classS :any){

@@ -29,6 +29,7 @@ export class CommunicationTComponent implements OnInit {
     
     this.submit=false;
     this.mesinfo.createMessage(this.KeyS , this.Message);
+    window.alert('The message was sent successfully')
   }
 
   KeyAssign(classS :any){

@@ -43,6 +43,7 @@ export class GradingComponent implements OnInit {
     this.grades.Outof = classS.Outof;
     
     this.teacherInfo.Grade('WTOB2et4nHa8F1o6RxmF' ,this.KeyS, this.grades);
+    window.alert('The student was graded successfully')
     
   }
 
@@ -52,5 +53,7 @@ export class GradingComponent implements OnInit {
     this.submit = true;
     
   }
+
+
 
 }

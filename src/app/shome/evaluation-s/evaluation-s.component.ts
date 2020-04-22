@@ -38,5 +38,6 @@ export class EvaluationSComponent implements OnInit {
     
     this.submit=false;
     this.mesinfo.createEvaloutin('WTOB2et4nHa8F1o6RxmF' , this.evaluation);
+    window.alert('The evaluation was sent seccessfully')
   }
 }
