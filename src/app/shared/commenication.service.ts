@@ -6,7 +6,7 @@ import { Evaluation } from 'src/app/register-teacher/evaluation';
   providedIn: 'root'
 })
 export class CommenicationService {
-  private dbPath = '/Commenication';
+  private dbPath = '/Communication';
   private dbPathE = '/Evaluation';
   messagesRef : AngularFirestoreCollection<Commenication> = null;
   EvalutionsRef : AngularFirestoreCollection<Evaluation> = null;
